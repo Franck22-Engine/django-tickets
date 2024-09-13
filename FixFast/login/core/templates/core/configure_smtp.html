@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurar SMTP</title>
+</head>
+<body>
+    <h1>Configurar SMTP</h1>
+    <form id="smtpForm" method="post">
+        {% csrf_token %}
+        <label for="email_host">SMTP Host:</label>
+        <input type="text" id="email_host" name="email_host" required><br><br>
+
+        <label for="email_port">SMTP Port:</label>
+        <input type="number" id="email_port" name="email_port" required><br><br>
+
+        <label for="email_host_user">SMTP Username:</label>
+        <input type="email" id="email_host_user" name="email_host_user" required><br><br>
+
+        <label for="email_host_password">SMTP Password:</label>
+        <input type="password" id="email_host_password" name="email_host_password" required><br><br>
+
+        <button type="submit">Guardar Configuración</button>
+    </form>
+</body>
+</html>

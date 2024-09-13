@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/kk.css">
+    <title>All Tickets</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'products' %}">Inicio</a></li>
+            <a href="{% url 'creaciondeticket' %}" class="btn btn-edit">Crear Ticket</a>
+        </ul>
+    </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td data-label="Id">{{ ticket.id }}</td>
+                <td data-label="Título">{{ ticket.title }}</td>
+                <td data-label="Descripción">{{ ticket.description }}</td>
+                <td>
+                    <a href="{% url 'editarticket' ticket.id %}" class="btn btn-edit">Editar</a>
+                    <a href="{% url 'eliminarticket' ticket.id %}" class="btn btn-delete" 
+                   onclick="return confirm('¿Estás seguro de que deseas eliminar este ticket?');">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

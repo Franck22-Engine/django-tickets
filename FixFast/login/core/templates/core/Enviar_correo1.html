@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Correo</title>
+</head>
+<body>
+    <h1>Enviar Correo</h1>
+    <form method="post" action="{% url 'enviar_correo' %}">
+        {% csrf_token %}
+        <label for="email_host">SMTP Host:</label>
+        <input type="text" id="email_host" name="email_host" required><br><br>
+
+        <label for="email_port">SMTP Port:</label>
+        <input type="number" id="email_port" name="email_port" required><br><br>
+
+        <label for="email_host_user">SMTP Username:</label>
+        <input type="email" id="email_host_user" name="email_host_user" required><br><br>
+
+        <label for="email_host_password">SMTP Password:</label>
+        <input type="password" id="email_host_password" name="email_host_password" required><br><br>
+
+        <h2>Enviar correo de prueba</h2>
+
+        <label for="destinatario">Destinatario:</label>
+        <input type="email" id="destinatario" name="destinatario" required><br><br>
+
+        <!-- <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required><br><br>
+
+        <label for="cuerpo">Cuerpo:</label>
+        <textarea id="cuerpo" name="cuerpo" required></textarea><br><br> -->
+
+        <button type="submit">Enviar Correo</button>
+    </form>
+</body>
+</html>
